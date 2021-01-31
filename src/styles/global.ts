@@ -25,6 +25,11 @@ export default createGlobalStyle`
     cursor: pointer;
   }
 
+  ::selection {
+    color: ${props => props.theme.shapes.primary};
+    background: ${props => props.theme.primary};
+  }
+
   @media(min-width: 700px) {
     :root {
       font-size: 62.5%;

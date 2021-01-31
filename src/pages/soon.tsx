@@ -1,4 +1,4 @@
-import { Container } from '../styles/pages/Soon'
+import { Container } from '../styles/pages/soon'
 import { useRouter } from 'next/router'
 
 export default function ComingSoon(): JSX.Element {

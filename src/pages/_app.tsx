@@ -5,7 +5,7 @@ import { ThemeProvider } from 'styled-components'
 import GlobalStyle from '../styles/global'
 import theme from '../styles/theme'
 
-function MyApp({ Component, pageProps }: AppProps): JSX.Element {
+export default function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   return (
     <>
       <Head>
@@ -20,5 +20,3 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
     </>
   )
 }
-
-export default MyApp

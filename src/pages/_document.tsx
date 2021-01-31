@@ -65,9 +65,8 @@ export default class MyDocument extends Document {
             sizes="16x16"
             href="/favicon-16x16.png"
           />
-          <link rel="manifest" href="/site.webmanifest" />
           <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
-          <meta name="theme-color" content="#ffffff" />
+          <meta name="theme-color" content="#F25D27" />
         </Head>
 
         <body>

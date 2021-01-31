@@ -2,9 +2,9 @@ import Link from 'next/link'
 
 import TravelerLogo from '../assets/logo.svg'
 
-import { Background, Container, Content } from '../styles/pages/Home'
+import { Background, Container, Content } from '../styles/pages/home'
 
-function Home(): JSX.Element {
+export default function Home(): JSX.Element {
   return (
     <Container>
       <header>
@@ -24,7 +24,7 @@ function Home(): JSX.Element {
             Ceará.
           </p>
 
-          <Link href="soon">
+          <Link href="app ">
             <button>Descobrir todos os lugares</button>
           </Link>
         </main>
@@ -34,5 +34,3 @@ function Home(): JSX.Element {
     </Container>
   )
 }
-
-export default Home
