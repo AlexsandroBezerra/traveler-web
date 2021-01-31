@@ -1,8 +1,11 @@
 import { useState } from 'react'
 import { FiSearch } from 'react-icons/fi'
+import { GetStaticProps } from 'next'
 import Link from 'next/link'
 
+import Card from '../components/Card'
 import TravelerLogo from '../assets/logo.svg'
+import api from '../services/api'
 
 import {
   Container,
@@ -10,9 +13,16 @@ import {
   CitiesCardContainer,
   Main
 } from '../styles/pages/app'
-import Card from '../components/Card'
 
-export default function App(): JSX.Element {
+interface AppProps {
+  cities: Array<{
+    id: string
+    name: string
+    imageUrl: string
+  }>
+}
+
+export default function App({ cities }: AppProps): JSX.Element {
   const [query, setQuery] = useState('')
 
   return (
@@ -45,29 +55,21 @@ export default function App(): JSX.Element {
         </div>
 
         <CitiesCardContainer>
-          <Card
-            title="Fortaleza"
-            imageUrl="https://observatorio3setor.org.br/wp-content/uploads/2016/08/Fortaleza_Brazil_6.jpg"
-          />
-
-          <Card
-            title="Fortaleza"
-            imageUrl="https://observatorio3setor.org.br/wp-content/uploads/2016/08/Fortaleza_Brazil_6.jpg"
-          />
-          <Card
-            title="Fortaleza"
-            imageUrl="https://observatorio3setor.org.br/wp-content/uploads/2016/08/Fortaleza_Brazil_6.jpg"
-          />
-          <Card
-            title="Fortaleza"
-            imageUrl="https://observatorio3setor.org.br/wp-content/uploads/2016/08/Fortaleza_Brazil_6.jpg"
-          />
-          <Card
-            title="Fortaleza"
-            imageUrl="https://observatorio3setor.org.br/wp-content/uploads/2016/08/Fortaleza_Brazil_6.jpg"
-          />
+          {cities.map(city => (
+            <Card key={city.id} title={city.name} imageUrl={city.imageUrl} />
+          ))}
         </CitiesCardContainer>
       </Main>
     </Container>
   )
+}
+
+export const getStaticProps: GetStaticProps = async () => {
+  const response = await api.get('/cities')
+
+  return {
+    props: {
+      cities: response.data
+    }
+  }
 }
