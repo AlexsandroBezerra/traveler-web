@@ -77,20 +77,20 @@ export const Input = styled.div`
 export const Main = styled.main`
   margin: 4rem auto 0;
   max-width: 112rem;
+`
 
-  > div {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+export const Labels = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-    button {
-      background: transparent;
-      border: none;
-      border-bottom: 2px solid ${props => props.theme.primary};
-      padding-bottom: 1rem;
-      font-weight: 500;
-      color: ${props => props.theme.text.title};
-    }
+  button {
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid ${props => props.theme.primary};
+    padding-bottom: 1rem;
+    font-weight: 500;
+    color: ${props => props.theme.text.title};
   }
 `
 

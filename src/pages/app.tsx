@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { FiSearch } from 'react-icons/fi'
 import { GetStaticProps } from 'next'
 import Link from 'next/link'
@@ -10,20 +10,36 @@ import api from '../services/api'
 import {
   Container,
   Input,
-  CitiesCardContainer,
-  Main
+  Main,
+  Labels,
+  CitiesCardContainer
 } from '../styles/pages/app'
 
 interface AppProps {
-  cities: Array<{
+  initialCities: Array<{
     id: string
     name: string
     imageUrl: string
   }>
 }
 
-export default function App({ cities }: AppProps): JSX.Element {
+export default function App({ initialCities }: AppProps): JSX.Element {
   const [query, setQuery] = useState('')
+  const [cities, setCities] = useState(initialCities)
+
+  useEffect(() => {
+    if (query) {
+      api
+        .get('/cities/search', {
+          params: {
+            q: query
+          }
+        })
+        .then(response => setCities(response.data))
+    } else {
+      setCities(initialCities)
+    }
+  }, [query])
 
   return (
     <Container>
@@ -47,16 +63,21 @@ export default function App({ cities }: AppProps): JSX.Element {
       </header>
 
       <Main>
-        <div>
+        <Labels>
           <h2>Selecione uma cidade</h2>
           <div>
             <button type="button">Todas</button>
           </div>
-        </div>
+        </Labels>
 
         <CitiesCardContainer>
           {cities.map(city => (
-            <Card key={city.id} title={city.name} imageUrl={city.imageUrl} />
+            <Card
+              key={city.id}
+              title={city.name}
+              imageUrl={city.imageUrl}
+              description="## locais"
+            />
           ))}
         </CitiesCardContainer>
       </Main>
@@ -69,7 +90,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
   return {
     props: {
-      cities: response.data
+      initialCities: response.data
     }
   }
 }
