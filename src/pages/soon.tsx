@@ -1,12 +1,23 @@
-import { Container } from '../styles/pages/soon'
 import { useRouter } from 'next/router'
+
+import TravelerLogo from '../assets/logo.svg'
+
+import { Container } from '../styles/pages/soon'
 
 export default function ComingSoon(): JSX.Element {
   const router = useRouter()
 
   return (
     <Container>
-      <h1>Em breve...</h1>
+      <TravelerLogo />
+
+      <h1>Em construção...</h1>
+      <h2>
+        Essa página ainda não está completa, em breve terá algo aqui.
+        <br />
+        <br />
+        :(
+      </h2>
 
       <button type="button" onClick={router.back}>
         Voltar para página anterior

@@ -10,9 +10,21 @@ export const Container = styled.div`
   justify-content: center;
   flex-direction: column;
 
+  text-align: center;
+  padding: 0 3.2rem;
+
+  svg {
+    margin-bottom: 8rem;
+  }
+
   h1 {
-    font: 600 5.6rem Barlow, 'sans-serif';
+    font: 600 4.8rem Barlow, 'sans-serif';
     color: ${props => props.theme.text.title};
+    margin-bottom: 1.8rem;
+  }
+
+  h2 {
+    font: 500 2.4rem Barlow, 'sans-serif';
   }
 
   button {
@@ -22,8 +34,7 @@ export const Container = styled.div`
     border-radius: 1rem;
     font-weight: 500;
     border: none;
-    margin-top: 3.2rem;
-    width: 40rem;
+    margin-top: 4.8rem;
     transition: background-color 0.2s;
 
     &:focus {
