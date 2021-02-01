@@ -42,10 +42,20 @@ export const Container = styled.header`
         order: 3;
         margin: 2.4rem auto 0;
       }
+
+      button {
+        margin-left: 0;
+      }
     }
   }
 `
 
 export const LogoContainer = styled.div`
   margin-right: 3.2rem;
+
+  @media (max-width: 730px) {
+    & {
+      margin-right: 0;
+    }
+  }
 `
