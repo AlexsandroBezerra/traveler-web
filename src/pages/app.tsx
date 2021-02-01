@@ -74,9 +74,10 @@ export default function App({ initialCities }: AppProps): JSX.Element {
           {cities.map(city => (
             <Card
               key={city.id}
+              href="/app"
               title={city.name}
               imageUrl={city.imageUrl}
-              description="## locais"
+              description="02 locais"
             />
           ))}
         </CitiesCardContainer>

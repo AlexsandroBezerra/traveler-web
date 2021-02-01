@@ -6,10 +6,12 @@ export const Container = styled.div`
   background: ${props => props.theme.shapes.primary};
   border: 2px solid ${props => props.theme.shapes.secondary};
   overflow: hidden;
+  cursor: pointer;
+  transition: 0.2s;
 
   img {
     width: 100%;
-    max-height: 17.5rem;
+    height: 17.5rem;
   }
 
   strong {
@@ -22,5 +24,9 @@ export const Container = styled.div`
 
   p {
     margin: 0 3.2rem 1.6rem;
+  }
+
+  &:hover {
+    transform: translateY(-8px);
   }
 `
