@@ -1,40 +1,6 @@
-import { shade } from 'polished'
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  header {
-    background: ${props => props.theme.shapes.primary};
-    border-bottom: 1px solid ${props => props.theme.shapes.secondary};
-
-    > div {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-
-      margin: 0 auto;
-      max-width: 112rem;
-      padding: 2.4rem 0;
-
-      button {
-        padding: 1.1rem 3.2rem;
-        border-radius: 1rem;
-        background: ${props => props.theme.blueLow};
-        border: none;
-        color: ${props => props.theme.secondary};
-        font-weight: 500;
-        transition: background-color 0.2s;
-
-        &:focus {
-          outline: ${props => props.theme.secondary} solid 0.3rem;
-        }
-
-        &:hover {
-          background: ${props => shade(0.1, props.theme.blueLow)};
-        }
-      }
-    }
-  }
-
   h2 {
     font-size: 3.6rem;
     font-weight: 500;
@@ -46,8 +12,9 @@ export const Input = styled.div`
   background: ${props => props.theme.background};
   border-radius: 1rem;
   padding: 1.4rem 1.6rem;
-  width: 100%;
   max-width: 41.6rem;
+  min-width: 26rem;
+  flex: 1;
   cursor: text;
   max-height: 48px;
 
@@ -72,11 +39,18 @@ export const Input = styled.div`
       color: ${props => props.theme.text.secondary};
     }
   }
+
+  @media (max-width: 730px) {
+    & {
+      min-width: 100%;
+    }
+  }
 `
 
 export const Main = styled.main`
   margin: 4rem auto 0;
-  max-width: 112rem;
+  padding: 3.2rem;
+  max-width: 118.4rem;
 `
 
 export const Labels = styled.div`
@@ -95,9 +69,13 @@ export const Labels = styled.div`
 `
 
 export const CitiesCardContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
   margin-top: 4rem;
-  justify-content: flex-start;
   gap: 3.2rem;
+  /* display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start; */
+
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(25.6rem, 1fr));
 `

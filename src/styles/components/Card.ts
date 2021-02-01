@@ -1,13 +1,15 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  max-width: 25.6rem;
+  flex: 1;
+  width: 100%;
   border-radius: 1.6rem;
   background: ${props => props.theme.shapes.primary};
   border: 2px solid ${props => props.theme.shapes.secondary};
   overflow: hidden;
   cursor: pointer;
   transition: 0.2s;
+  min-width: 2rem;
 
   img {
     width: 100%;

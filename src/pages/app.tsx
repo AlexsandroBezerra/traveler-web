@@ -1,10 +1,8 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { FiSearch } from 'react-icons/fi'
 import { GetStaticProps } from 'next'
-import Link from 'next/link'
 
 import Card from '../components/Card'
-import TravelerLogo from '../assets/logo.svg'
 import api from '../services/api'
 
 import {
@@ -14,6 +12,7 @@ import {
   Labels,
   CitiesCardContainer
 } from '../styles/pages/app'
+import Header from '../components/Header'
 
 interface AppProps {
   initialCities: Array<{
@@ -26,6 +25,11 @@ interface AppProps {
 export default function App({ initialCities }: AppProps): JSX.Element {
   const [query, setQuery] = useState('')
   const [cities, setCities] = useState(initialCities)
+  const searchInputRef = useRef<HTMLInputElement>(null)
+
+  useEffect(() => {
+    searchInputRef.current.focus()
+  }, [])
 
   useEffect(() => {
     if (query) {
@@ -43,24 +47,17 @@ export default function App({ initialCities }: AppProps): JSX.Element {
 
   return (
     <Container>
-      <header>
-        <div>
-          <TravelerLogo />
-
-          <Input>
-            <FiSearch size={20} />
-            <input
-              value={query}
-              onChange={e => setQuery(e.target.value)}
-              placeholder="Qual cidade você procura?"
-            />
-          </Input>
-
-          <Link href="soon">
-            <button type="button">Acesso restrito</button>
-          </Link>
-        </div>
-      </header>
+      <Header>
+        <Input>
+          <FiSearch size={20} />
+          <input
+            ref={searchInputRef}
+            value={query}
+            onChange={e => setQuery(e.target.value)}
+            placeholder="Qual cidade você procura?"
+          />
+        </Input>
+      </Header>
 
       <Main>
         <Labels>
