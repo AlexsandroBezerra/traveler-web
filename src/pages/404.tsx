@@ -1,12 +1,10 @@
-import { useRouter } from 'next/router'
+import Link from 'next/link'
 
 import TravelerLogo from '../assets/logo.svg'
 
 import { Container } from '../styles/pages/soon'
 
 export default function ComingSoon(): JSX.Element {
-  const router = useRouter()
-
   return (
     <Container>
       <TravelerLogo />
@@ -19,9 +17,9 @@ export default function ComingSoon(): JSX.Element {
         :(
       </h2>
 
-      <button type="button" onClick={router.back}>
-        Voltar para o início
-      </button>
+      <Link href="/">
+        <button type="button">Voltar para o início</button>
+      </Link>
     </Container>
   )
 }
