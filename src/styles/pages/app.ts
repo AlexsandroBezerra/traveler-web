@@ -71,11 +71,26 @@ export const Labels = styled.div`
 export const CitiesCardContainer = styled.div`
   margin-top: 4rem;
   gap: 3.2rem;
-  /* display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start; */
 
   display: grid;
   grid-gap: 10px;
   grid-template-columns: repeat(auto-fill, minmax(25.6rem, 1fr));
+`
+
+export const NotFoundContainer = styled.div`
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  margin-top: 14.7rem;
+  text-align: center;
+  font-size: 2.4rem;
+  font-weight: 500;
+
+  svg {
+    margin-bottom: 3.2rem;
+  }
 `

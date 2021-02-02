@@ -1,18 +1,21 @@
 import { useEffect, useRef, useState } from 'react'
 import { FiSearch } from 'react-icons/fi'
+import Header from '../components/Header'
 import { GetStaticProps } from 'next'
 
 import Card from '../components/Card'
 import api from '../services/api'
+
+import Emoji from '../assets/mehh-emoji.svg'
 
 import {
   Container,
   Input,
   Main,
   Labels,
-  CitiesCardContainer
+  CitiesCardContainer,
+  NotFoundContainer
 } from '../styles/pages/app'
-import Header from '../components/Header'
 
 interface AppProps {
   initialCities: Array<{
@@ -60,24 +63,36 @@ export default function App({ initialCities }: AppProps): JSX.Element {
       </Header>
 
       <Main>
-        <Labels>
-          <h2>Selecione uma cidade</h2>
-          <div>
-            <button type="button">Todas</button>
-          </div>
-        </Labels>
+        {cities.length > 0 && (
+          <>
+            <Labels>
+              <h2>Selecione uma cidade</h2>
+              <div>
+                <button type="button">Todas</button>
+              </div>
+            </Labels>
 
-        <CitiesCardContainer>
-          {cities.map(city => (
-            <Card
-              key={city.id}
-              href="/app"
-              title={city.name}
-              imageUrl={city.imageUrl}
-              description="02 locais"
-            />
-          ))}
-        </CitiesCardContainer>
+            <CitiesCardContainer>
+              {cities.map(city => (
+                <Card
+                  key={city.id}
+                  href="/app"
+                  title={city.name}
+                  imageUrl={city.imageUrl}
+                  description="02 locais"
+                />
+              ))}
+            </CitiesCardContainer>
+          </>
+        )}
+
+        {cities.length === 0 && (
+          <NotFoundContainer>
+            <Emoji />
+            Sem resultados. <br />
+            Tente uma nova busca
+          </NotFoundContainer>
+        )}
       </Main>
     </Container>
   )
