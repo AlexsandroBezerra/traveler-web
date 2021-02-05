@@ -1,8 +1,15 @@
 import Link from 'next/link'
+import { useRouter } from 'next/router'
+import { FiArrowLeft } from 'react-icons/fi'
 
 import TravelerLogo from '../assets/logo.svg'
 
-import { Container, LogoContainer } from '../styles/components/Header'
+import {
+  BackButton,
+  Container,
+  LogoContainer,
+  RestrictedAccessButton
+} from '../styles/components/Header'
 
 interface HeaderProps {
   children?: React.ReactNode
@@ -13,18 +20,26 @@ export default function Header({
   children,
   backButton = false
 }: HeaderProps): JSX.Element {
+  const router = useRouter()
+
   return (
     <Container>
       <div>
         <LogoContainer>
           <TravelerLogo />
-          {backButton && <div />}
+          {backButton && (
+            <BackButton type="button" onClick={router.back}>
+              <FiArrowLeft size={20} />
+            </BackButton>
+          )}
         </LogoContainer>
 
         {children}
 
-        <Link href="soon">
-          <button type="button">Acesso restrito</button>
+        <Link href="/soon">
+          <RestrictedAccessButton type="button">
+            Acesso restrito
+          </RestrictedAccessButton>
         </Link>
       </div>
     </Container>
