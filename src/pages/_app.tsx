@@ -3,6 +3,7 @@ import Head from 'next/head'
 import { ThemeProvider } from 'styled-components'
 
 import GlobalStyle from '../styles/global'
+import previewImg from '../assets/preview.png'
 import theme from '../styles/theme'
 
 export default function MyApp({ Component, pageProps }: AppProps): JSX.Element {
@@ -28,7 +29,10 @@ export default function MyApp({ Component, pageProps }: AppProps): JSX.Element {
           property="og:description"
           content="Descubra locais incríveis para se visitar em cidades maravilhosas do Ceará."
         />
-        <meta property="og:image" content="/preview.png" />
+        <meta
+          property="og:image"
+          content={`https://traveler.alexbezerra.xyz/${previewImg}`}
+        />
 
         <meta property="twitter:card" content="summary_large_image" />
         <meta
@@ -43,7 +47,10 @@ export default function MyApp({ Component, pageProps }: AppProps): JSX.Element {
           property="twitter:description"
           content="Descubra locais incríveis para se visitar em cidades maravilhosas do Ceará."
         />
-        <meta property="twitter:image" content="/preview.png" />
+        <meta
+          property="twitter:image"
+          content={`https://traveler.alexbezerra.xyz/${previewImg}`}
+        />
       </Head>
 
       <ThemeProvider theme={theme}>
