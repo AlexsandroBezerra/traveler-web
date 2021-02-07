@@ -1,5 +1,6 @@
 import { GetStaticPaths, GetStaticProps } from 'next'
 import Image from 'next/image'
+import Head from 'next/head'
 
 import Header from '../../components/Header'
 import api from '../../services/api'
@@ -26,8 +27,12 @@ interface CityProps {
 export default function City({ city }: CityProps): JSX.Element {
   return (
     <Container>
+      <Head>
+        <title>Traveler | {city.name}</title>
+      </Head>
+
       <Header backButton>
-        <h2>Cidade</h2>
+        <h2>{city.name}</h2>
       </Header>
 
       <Content>

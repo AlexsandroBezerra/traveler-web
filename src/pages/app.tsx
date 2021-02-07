@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from 'react'
 import { FiSearch } from 'react-icons/fi'
-import Header from '../components/Header'
 import { GetStaticProps } from 'next'
+import Head from 'next/head'
 
+import Header from '../components/Header'
 import Card from '../components/Card'
 import api from '../services/api'
 
@@ -50,6 +51,10 @@ export default function App({ initialCities }: AppProps): JSX.Element {
 
   return (
     <Container>
+      <Head>
+        <title>Traveler | Dashboard</title>
+      </Head>
+
       <Header>
         <Input>
           <FiSearch size={20} />

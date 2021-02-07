@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Head from 'next/head'
 
 import TravelerLogo from '../assets/logo.svg'
 
@@ -7,6 +8,10 @@ import { Background, Container, Content } from '../styles/pages/home'
 export default function Home(): JSX.Element {
   return (
     <Container>
+      <Head>
+        <title>Traveler | Viva uma grande aventura</title>
+      </Head>
+
       <header>
         <TravelerLogo />
 
