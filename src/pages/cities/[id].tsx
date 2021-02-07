@@ -52,11 +52,18 @@ export default function City({ city }: CityProps): JSX.Element {
 }
 
 export const getStaticProps: GetStaticProps = async ctx => {
-  const response = await api.get<City>(`/cities/${ctx.params.id}`)
+  try {
+    const response = await api.get<City>(`/cities/${ctx.params.id}`)
 
-  return {
-    props: {
-      city: response.data
+    return {
+      revalidate: 60,
+      props: {
+        city: response.data
+      }
+    }
+  } catch {
+    return {
+      notFound: true
     }
   }
 }

@@ -102,6 +102,7 @@ export const getStaticProps: GetStaticProps = async () => {
   const response = await api.get('/cities')
 
   return {
+    revalidate: 60,
     props: {
       initialCities: response.data
     }
