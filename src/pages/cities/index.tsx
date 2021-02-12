@@ -3,11 +3,11 @@ import { FiSearch } from 'react-icons/fi'
 import { GetStaticProps } from 'next'
 import Head from 'next/head'
 
-import Header from '../components/Header'
-import Card from '../components/Card'
-import api from '../services/api'
+import Header from '../../components/Header'
+import Card from '../../components/Card'
+import api from '../../services/api'
 
-import Emoji from '../assets/mehh-emoji.svg'
+import Emoji from '../../assets/mehh-emoji.svg'
 
 import {
   Container,
@@ -16,7 +16,7 @@ import {
   Labels,
   CitiesCardContainer,
   NotFoundContainer
-} from '../styles/pages/app'
+} from '../../styles/pages/app'
 
 interface AppProps {
   initialCities: Array<{

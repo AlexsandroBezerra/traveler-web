@@ -29,7 +29,7 @@ export default function Home(): JSX.Element {
             Ceará.
           </p>
 
-          <Link href="app ">
+          <Link href="cities">
             <button>Descobrir todos os lugares</button>
           </Link>
         </main>
