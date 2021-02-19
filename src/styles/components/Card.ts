@@ -16,6 +16,11 @@ export const Container = styled.div`
     height: 17.5rem;
   }
 
+  canvas {
+    width: 100%;
+    height: 17.5rem;
+  }
+
   strong {
     font-size: 2rem;
     font-weight: 500;
