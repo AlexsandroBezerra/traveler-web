@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router'
 
 import TravelerLogo from '../assets/logo.svg'
+import SEO from '../components/SEO'
 
 import { Container } from '../styles/pages/soon'
 
@@ -9,6 +10,7 @@ export default function ComingSoon(): JSX.Element {
 
   return (
     <Container>
+      <SEO />
       <TravelerLogo />
 
       <h1>Em construção...</h1>

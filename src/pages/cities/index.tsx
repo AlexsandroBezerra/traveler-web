@@ -17,6 +17,7 @@ import {
   CitiesCardContainer,
   NotFoundContainer
 } from '../../styles/pages/cities'
+import SEO from '../../components/SEO'
 
 interface AppProps {
   initialCities: Array<{
@@ -53,9 +54,7 @@ export default function App({ initialCities }: AppProps): JSX.Element {
 
   return (
     <Container>
-      <Head>
-        <title>Traveler | Dashboard</title>
-      </Head>
+      <SEO title="Traveler | Dashboard" />
 
       <Header>
         <Input>

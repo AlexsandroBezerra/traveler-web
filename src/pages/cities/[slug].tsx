@@ -12,6 +12,7 @@ import {
   Main,
   ImageContainer
 } from '../../styles/pages/city'
+import SEO from '../../components/SEO'
 
 interface City {
   id: string
@@ -34,9 +35,12 @@ export default function City({ city }: CityProps): JSX.Element {
 
   return (
     <Container>
-      <Head>
-        <title>Traveler | {city.name}</title>
-      </Head>
+      <SEO
+        title={`Traveler | ${city.name}`}
+        description={city.description}
+        image={city.imageUrl}
+        imageAlt={`Image da cidade de ${city.name}.`}
+      />
 
       <Header backButton>
         <h2>{city.name}</h2>
