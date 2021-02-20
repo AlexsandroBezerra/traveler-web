@@ -14,21 +14,22 @@ export default function ImageWithLazyLoad({
   width,
   height
 }: ImageWithLazyLoadProps): JSX.Element {
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
 
   return (
     <>
       <img
         src={imageUrl}
-        onLoad={() => setIsLoading(true)}
-        style={{ display: !isLoading ? 'none' : 'block' }}
+        // onLoadStart={() => setIsLoading(true)}
+        onLoad={() => setIsLoading(false)}
+        style={{ display: isLoading ? 'none' : 'block' }}
       />
       <Blurhash
         hash={hash}
         width={width}
         height={height}
         punch={1}
-        style={{ display: isLoading ? 'none' : 'block' }}
+        style={{ display: !isLoading ? 'none' : 'block' }}
       />
     </>
   )
