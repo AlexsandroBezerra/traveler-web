@@ -3,6 +3,7 @@ import Head from 'next/head'
 
 import Header from '../../components/Header'
 import api from '../../services/api'
+import ImageWithLazyLoad from '../../components/ImageWithLazyLoad'
 
 import {
   Container,
@@ -10,7 +11,7 @@ import {
   Main,
   ImageContainer
 } from '../../styles/pages/cities'
-import ImageWithLazyLoad from '../../components/ImageWithLazyLoad'
+import { useEffect } from 'react'
 
 interface City {
   id: string
@@ -26,6 +27,10 @@ interface CityProps {
 }
 
 export default function City({ city }: CityProps): JSX.Element {
+  useEffect(() => {
+    api.post(`cities/${city.id}/access`)
+  }, [])
+
   return (
     <Container>
       <Head>
