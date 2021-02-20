@@ -29,7 +29,6 @@ export const Container = styled.div`
       border: none;
       color: ${props => props.theme.secondary};
       font-weight: 500;
-      transition: 0.2s;
 
       &:focus {
         outline: ${props => props.theme.secondary} solid 0.3rem;
@@ -100,7 +99,6 @@ export const Content = styled.div`
       border-radius: 1rem;
       font-weight: 500;
       border: none;
-      transition: 0.2s;
 
       &:focus {
         outline: ${props => props.theme.secondary} solid 0.3rem;

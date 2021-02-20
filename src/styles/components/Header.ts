@@ -1,7 +1,11 @@
 import { shade } from 'polished'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
-export const Container = styled.header`
+interface ContainerProps {
+  backButton: boolean
+}
+
+export const Container = styled.header<ContainerProps>`
   background: ${props => props.theme.shapes.primary};
   border-bottom: 1px solid ${props => props.theme.shapes.secondary};
   display: flex;
@@ -23,9 +27,21 @@ export const Container = styled.header`
         font-size: 1.4rem;
         padding: 1.8rem 0;
       }
+
+      h2 {
+        font-size: 1.4rem;
+      }
     }
 
     @media (max-width: 730px) {
+      h2 {
+        order: 3;
+        width: 100%;
+        text-align: center;
+        margin-top: 3.2rem;
+        font-size: 1.8rem;
+      }
+
       > div :nth-child(2) {
         order: 3;
         margin: 2.4rem auto 0;
@@ -34,30 +50,70 @@ export const Container = styled.header`
       button {
         margin-left: 0;
       }
+
+      ${props =>
+        props.backButton &&
+        css`
+          & > button {
+            display: none;
+          }
+        `}
     }
   }
 `
 
-export const LogoContainer = styled.div`
+export const LogoContainer = styled.div<ContainerProps>`
   display: flex;
   align-items: center;
   margin-right: 3.2rem;
 
   @media (max-width: 730px) {
-    & {
-      margin-right: 0;
+    margin-right: 0;
+
+    > button {
+      order: -1;
+      margin-right: 1.8rem;
     }
+
+    ${props =>
+      props.backButton &&
+      css`
+        & {
+          width: 100%;
+          justify-content: space-between;
+
+          > svg {
+            margin-right: calc(50% - 78px);
+          }
+        }
+      `}
   }
 
   @media (max-width: 400px) {
-    svg {
+    > svg {
       width: 12rem;
+
+      ${props =>
+        props.backButton &&
+        css`
+          & {
+            margin-right: calc(50% - 60px);
+          }
+        `}
     }
   }
 
   @media (max-width: 350px) {
-    svg {
+    > svg {
       width: 10rem;
+
+      ${props =>
+        props.backButton &&
+        css`
+          & {
+            margin-right: calc(50% - 50px);
+          }
+        `}
     }
   }
 `
@@ -72,12 +128,37 @@ export const BackButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: 0.2s;
 
   &:hover {
     border: 1px solid ${props => props.theme.secondary};
     color: ${props => props.theme.secondary};
     background: ${props => shade(0.05, props.theme.shapes.primary)};
+  }
+
+  @media (max-width: 730px) {
+    & {
+      margin-left: 0;
+    }
+  }
+
+  @media (max-width: 400px) {
+    & {
+      padding: 0.8rem;
+
+      svg {
+        width: 1.8rem;
+        height: 1.8rem;
+      }
+    }
+  }
+
+  @media (max-width: 350px) {
+    & {
+      svg {
+        width: 1.4rem;
+        height: 1.4rem;
+      }
+    }
   }
 `
 
@@ -89,7 +170,6 @@ export const RestrictedAccessButton = styled.button`
   color: ${props => props.theme.secondary};
   font-weight: 500;
   margin-left: 3.2rem;
-  transition: 0.2s;
 
   &:focus {
     outline: ${props => props.theme.secondary} solid 0.3rem;

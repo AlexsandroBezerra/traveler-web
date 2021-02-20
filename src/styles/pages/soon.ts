@@ -11,7 +11,7 @@ export const Container = styled.div`
   flex-direction: column;
 
   text-align: center;
-  padding: 0 3.2rem;
+  padding: 0 4.8rem;
 
   svg {
     margin-bottom: 8rem;
@@ -35,7 +35,6 @@ export const Container = styled.div`
     font-weight: 500;
     border: none;
     margin-top: 4.8rem;
-    transition: 0.2s;
 
     &:focus {
       outline: ${props => props.theme.secondary} solid 0.3rem;
@@ -43,6 +42,35 @@ export const Container = styled.div`
 
     &:hover {
       background: ${props => shade(0.1, props.theme.primary)};
+    }
+  }
+
+  @media (max-width: 730px) {
+    h1 {
+      font-size: 3.6rem;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+    }
+
+    button {
+      padding: 1.8rem;
+    }
+  }
+
+  @media (max-width: 400px) {
+    h1 {
+      font-size: 2.4rem;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+    }
+
+    button {
+      padding: 1.6rem;
+      font-size: 1.4rem;
     }
   }
 `

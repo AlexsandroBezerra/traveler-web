@@ -23,9 +23,9 @@ export default function Header({
   const router = useRouter()
 
   return (
-    <Container>
+    <Container backButton={backButton}>
       <div>
-        <LogoContainer>
+        <LogoContainer backButton={backButton}>
           <TravelerLogo />
           {backButton && (
             <BackButton type="button" onClick={router.back}>

@@ -8,7 +8,6 @@ export const Container = styled.div`
   border: 2px solid ${props => props.theme.shapes.secondary};
   overflow: hidden;
   cursor: pointer;
-  transition: 0.2s;
   min-width: 2rem;
 
   img {
