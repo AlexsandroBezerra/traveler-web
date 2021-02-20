@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { Blurhash } from 'react-blurhash'
 
 interface ImageWithLazyLoadProps {
@@ -15,14 +15,19 @@ export default function ImageWithLazyLoad({
   height
 }: ImageWithLazyLoadProps): JSX.Element {
   const [isLoading, setIsLoading] = useState(true)
+  const imgRef = useRef<HTMLImageElement>(null)
+
+  const onLoad = useCallback(() => setIsLoading(false), [])
+
+  useEffect(() => imgRef.current.complete && onLoad(), [])
 
   return (
     <>
       <img
         src={imageUrl}
-        // onLoadStart={() => setIsLoading(true)}
-        onLoad={() => setIsLoading(false)}
+        ref={imgRef}
         style={{ display: isLoading ? 'none' : 'block' }}
+        onLoad={onLoad}
       />
       <Blurhash
         hash={hash}
