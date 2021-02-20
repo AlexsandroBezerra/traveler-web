@@ -20,6 +20,7 @@ interface City {
   imageUrl: string
   description: string
   famousFor: string
+  slug: string
 }
 
 interface CityProps {
@@ -28,7 +29,7 @@ interface CityProps {
 
 export default function City({ city }: CityProps): JSX.Element {
   useEffect(() => {
-    api.post(`cities/${city.id}/access`)
+    api.post(`cities/${city.slug}/access`)
   }, [])
 
   return (
@@ -64,7 +65,7 @@ export default function City({ city }: CityProps): JSX.Element {
 
 export const getStaticProps: GetStaticProps = async ctx => {
   try {
-    const response = await api.get<City>(`/cities/${ctx.params.id}`)
+    const response = await api.get<City>(`/cities/${ctx.params.slug}`)
 
     return {
       revalidate: 60,
@@ -85,7 +86,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const paths = response.data.map(city => {
     return {
       params: {
-        id: city.id
+        slug: city.slug
       }
     }
   })

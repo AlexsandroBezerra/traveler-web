@@ -24,6 +24,7 @@ interface AppProps {
     name: string
     imageUrl: string
     imageHash: string
+    slug: string
   }>
 }
 
@@ -82,7 +83,7 @@ export default function App({ initialCities }: AppProps): JSX.Element {
               {cities.map(city => (
                 <Card
                   key={city.id}
-                  href={`cities/${city.id}`}
+                  href={`cities/${city.slug}`}
                   title={city.name}
                   imageUrl={city.imageUrl}
                   imageHash={city.imageHash}
