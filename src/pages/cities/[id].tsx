@@ -1,5 +1,4 @@
 import { GetStaticPaths, GetStaticProps } from 'next'
-import Image from 'next/image'
 import Head from 'next/head'
 
 import Header from '../../components/Header'
@@ -11,10 +10,12 @@ import {
   Main,
   ImageContainer
 } from '../../styles/pages/cities'
+import ImageWithLazyLoad from '../../components/ImageWithLazyLoad'
 
 interface City {
   id: string
   name: string
+  imageHash: string
   imageUrl: string
   description: string
   famousFor: string
@@ -37,11 +38,11 @@ export default function City({ city }: CityProps): JSX.Element {
 
       <Content>
         <ImageContainer>
-          <Image
-            src={city.imageUrl}
-            layout="fill"
-            objectFit="cover"
-            objectPosition="50% 25%"
+          <ImageWithLazyLoad
+            imageUrl={city.imageUrl}
+            hash={city.imageHash}
+            width="100%"
+            height="100%"
           />
         </ImageContainer>
 

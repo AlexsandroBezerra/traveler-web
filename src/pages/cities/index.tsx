@@ -23,6 +23,7 @@ interface AppProps {
     id: string
     name: string
     imageUrl: string
+    imageHash: string
   }>
 }
 
@@ -84,6 +85,7 @@ export default function App({ initialCities }: AppProps): JSX.Element {
                   href={`cities/${city.id}`}
                   title={city.name}
                   imageUrl={city.imageUrl}
+                  imageHash={city.imageHash}
                   description="02 locais"
                 />
               ))}

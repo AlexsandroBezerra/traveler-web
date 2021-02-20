@@ -23,6 +23,13 @@ export const ImageContainer = styled.div`
   width: 100%;
   height: 34rem;
   top: 0;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-fit: 50% 35%;
+  }
 `
 
 export const Main = styled.main`
