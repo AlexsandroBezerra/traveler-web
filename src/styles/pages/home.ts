@@ -29,7 +29,7 @@ export const Container = styled.div`
       border: none;
       color: ${props => props.theme.secondary};
       font-weight: 500;
-      transition: background-color 0.2s;
+      transition: 0.2s;
 
       &:focus {
         outline: ${props => props.theme.secondary} solid 0.3rem;
@@ -37,6 +37,32 @@ export const Container = styled.div`
 
       &:hover {
         background: ${props => shade(0.1, props.theme.blueLow)};
+      }
+    }
+  }
+
+  @media (max-width: 400px) {
+    header {
+      svg {
+        width: 12rem;
+      }
+
+      button {
+        padding: 0.8rem 2.4rem;
+        font-size: 1.4rem;
+      }
+    }
+  }
+
+  @media (max-width: 350px) {
+    header {
+      svg {
+        width: 10rem;
+      }
+
+      button {
+        padding: 0.8rem 1.2rem;
+        font-size: 1.2rem;
       }
     }
   }
@@ -58,13 +84,13 @@ export const Content = styled.div`
     justify-content: center;
 
     h1 {
-      font: 600 8rem Barlow, 'sans-serif';
+      font: 600 4.8rem Barlow, 'sans-serif';
       color: ${props => props.theme.text.title};
     }
 
     p {
       margin: 4rem 0 4.8rem;
-      font-size: 2rem;
+      font-size: 1.6rem;
     }
 
     button {
@@ -74,7 +100,7 @@ export const Content = styled.div`
       border-radius: 1rem;
       font-weight: 500;
       border: none;
-      transition: background-color 0.2s;
+      transition: 0.2s;
 
       &:focus {
         outline: ${props => props.theme.secondary} solid 0.3rem;
@@ -86,11 +112,43 @@ export const Content = styled.div`
     }
   }
 
+  @media (min-width: 350px) {
+    main {
+      h1 {
+        font-size: 5.6rem;
+      }
+
+      p {
+        font-size: 1.4rem;
+      }
+    }
+  }
+
+  @media (min-width: 400px) {
+    main {
+      h1 {
+        font-size: 6.4rem;
+      }
+
+      p {
+        font-size: 1.8rem;
+      }
+    }
+  }
+
   @media (min-width: 700px) {
     main {
       max-width: 33rem;
       margin-right: 8rem;
       text-align: left;
+
+      h1 {
+        font-size: 8rem;
+      }
+
+      p {
+        font-size: 2rem;
+      }
     }
   }
 `

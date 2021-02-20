@@ -18,6 +18,13 @@ export const Container = styled.header`
     max-width: 112rem;
     padding: 2.4rem 0;
 
+    @media (max-width: 400px) {
+      > div input {
+        font-size: 1.4rem;
+        padding: 1.8rem 0;
+      }
+    }
+
     @media (max-width: 730px) {
       > div :nth-child(2) {
         order: 3;
@@ -39,6 +46,18 @@ export const LogoContainer = styled.div`
   @media (max-width: 730px) {
     & {
       margin-right: 0;
+    }
+  }
+
+  @media (max-width: 400px) {
+    svg {
+      width: 12rem;
+    }
+  }
+
+  @media (max-width: 350px) {
+    svg {
+      width: 10rem;
     }
   }
 `
@@ -70,7 +89,7 @@ export const RestrictedAccessButton = styled.button`
   color: ${props => props.theme.secondary};
   font-weight: 500;
   margin-left: 3.2rem;
-  transition: background-color 0.2s;
+  transition: 0.2s;
 
   &:focus {
     outline: ${props => props.theme.secondary} solid 0.3rem;
@@ -78,5 +97,19 @@ export const RestrictedAccessButton = styled.button`
 
   &:hover {
     background: ${props => shade(0.1, props.theme.blueLow)};
+  }
+
+  @media (max-width: 400px) {
+    & {
+      padding: 0.8rem 2.4rem;
+      font-size: 1.4rem;
+    }
+  }
+
+  @media (max-width: 350px) {
+    & {
+      padding: 0.8rem 1.2rem;
+      font-size: 1.2rem;
+    }
   }
 `

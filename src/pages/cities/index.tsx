@@ -16,7 +16,7 @@ import {
   Labels,
   CitiesCardContainer,
   NotFoundContainer
-} from '../../styles/pages/app'
+} from '../../styles/pages/cities'
 
 interface AppProps {
   initialCities: Array<{

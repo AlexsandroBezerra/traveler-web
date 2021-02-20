@@ -35,7 +35,7 @@ export const Container = styled.div`
     font-weight: 500;
     border: none;
     margin-top: 4.8rem;
-    transition: background-color 0.2s;
+    transition: 0.2s;
 
     &:focus {
       outline: ${props => props.theme.secondary} solid 0.3rem;

@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import Head from 'next/head'
 
@@ -10,8 +11,7 @@ import {
   Content,
   Main,
   ImageContainer
-} from '../../styles/pages/cities'
-import { useEffect } from 'react'
+} from '../../styles/pages/city'
 
 interface City {
   id: string

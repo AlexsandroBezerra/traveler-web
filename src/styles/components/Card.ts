@@ -14,6 +14,7 @@ export const Container = styled.div`
   img {
     width: 100%;
     height: 17.5rem;
+    object-fit: cover;
   }
 
   canvas {
@@ -35,5 +36,21 @@ export const Container = styled.div`
 
   &:hover {
     transform: translateY(-8px);
+  }
+
+  @media (max-width: 730px) {
+    strong {
+      font-size: 1.8rem;
+    }
+
+    p {
+      font-size: 1.4rem;
+    }
+  }
+
+  @media (max-width: 350px) {
+    & {
+      min-width: 1.4rem;
+    }
   }
 `
