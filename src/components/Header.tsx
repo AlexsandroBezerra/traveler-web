@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import { useCallback } from 'react'
 import { FiArrowLeft } from 'react-icons/fi'
 
 import TravelerLogo from '../assets/logo.svg'
@@ -13,24 +14,30 @@ import {
 
 interface HeaderProps {
   children?: React.ReactNode
-  backButton?: boolean
+  backButton?: string
 }
 
 export default function Header({
   children,
-  backButton = false
+  backButton
 }: HeaderProps): JSX.Element {
-  const router = useRouter()
+  const { push } = useRouter()
+
+  const goBack = useCallback(() => {
+    push(backButton)
+  }, [])
 
   return (
-    <Container backButton={backButton}>
+    <Container backButton={!!backButton}>
       <div>
-        <LogoContainer backButton={backButton}>
+        <LogoContainer backButton={!!backButton}>
           <TravelerLogo />
-          {backButton && (
-            <BackButton type="button" onClick={router.back}>
-              <FiArrowLeft size={20} />
-            </BackButton>
+          {!!backButton && (
+            <Link href={backButton}>
+              <BackButton type="button" onClick={goBack}>
+                <FiArrowLeft size={20} />
+              </BackButton>
+            </Link>
           )}
         </LogoContainer>
 

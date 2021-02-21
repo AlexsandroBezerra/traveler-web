@@ -1,6 +1,5 @@
 import { useEffect } from 'react'
 import { GetStaticPaths, GetStaticProps } from 'next'
-import Head from 'next/head'
 
 import Header from '../../components/Header'
 import api from '../../services/api'
@@ -42,7 +41,7 @@ export default function City({ city }: CityProps): JSX.Element {
         imageAlt={`Image da cidade de ${city.name}.`}
       />
 
-      <Header backButton>
+      <Header backButton="/cities">
         <h2>{city.name}</h2>
       </Header>
 

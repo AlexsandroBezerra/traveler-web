@@ -18,8 +18,6 @@ export default function SEO({
 }: SEOProps): JSX.Element {
   const { route } = useRouter()
 
-  console.log(route)
-
   const urlPrefix = useMemo(() => 'https://traveler.alexbezerra.xyz', [])
   const url = useMemo(() => urlPrefix + route, [])
 
